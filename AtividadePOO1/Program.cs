@@ -22,28 +22,25 @@ namespace AtividadePOO1
                 Console.Write("Outsourced? (y/n) ");
                 string o = Console.ReadLine().Trim().ToLower();
 
-                if (o.Equals("n"))
-                {
+                
                     Console.WriteLine("Name: ");
                     string Name = Console.ReadLine();
                     Console.WriteLine("Hours: ");
                     int Hours = int.Parse(Console.ReadLine());
                     Console.WriteLine("Value per hour: ");
                     double Value = double.Parse(Console.ReadLine());
-                    Employee Employee = new Employee(Name, Hours, Value);
-                    employees.Add(Employee);
-                }
-                else if (o.Equals("y"))
+                
+                if (o.Equals("y"))
                 {
-                    Console.WriteLine("Name: ");
-                    string Name = Console.ReadLine();
-                    Console.WriteLine("Hours: ");
-                    int Hours = int.Parse(Console.ReadLine());
-                    Console.WriteLine("Value per hour: ");
-                    double Value = double.Parse(Console.ReadLine());
                     Console.WriteLine("Additional Charge: ");
                     double AdditionalCharge = double.Parse(Console.ReadLine());
                     Employee Employee = new OutSourcedEmployee(Name, Hours, Value, AdditionalCharge);
+                    employees.Add(Employee);
+                }
+                else
+                {
+
+                    Employee Employee = new Employee(Name, Hours, Value);
                     employees.Add(Employee);
                 }
             }
